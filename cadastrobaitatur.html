@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - BaitaTur</title>
+    
+    <style>
+        html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -50px; /* Ajuste conforme necessário */
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  max-width: 300px; /* Limite máximo de largura */
+  padding: 10px;
+  margin-top: 10px;
+  background-color: black;
+  color: orange;
+  border: 1px solid orange; /* Borda laranja para manter consistência */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+select {
+  width: 100%;
+  max-width: 300px; /* Limite máximo de largura */
+  padding: 10px;
+  margin-top: 10px;
+  background-color: black;
+  color: orange;
+  border: 1px solid orange; /* Borda laranja para manter consistência */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"] {
+  width: 100%;
+  max-width: 300px; /* Limite máximo de largura */
+  padding: 10px;
+  margin-top: 10px;
+  background-color: black;
+  color: orange;
+  border: 1px solid orange; /* Borda laranja para manter consistência */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: orange;
+  color: black; /* Muda a cor do texto ao passar o mouse */
+}
+
+h2 {
+  margin-top: 10px; /* Reduzir a margem superior para posicionar o título mais perto da imagem */
+  text-align: center;
+  color: orange;
+}
+
+h5 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: orange;
+}
+
+::placeholder {
+  color: orange;
+  font-size: 12px; /* Reduzir o tamanho da fonte dos placeholders */
+}
+
+img {
+  margin-top: 0px; /* Ajuste conforme necessário */
+  max-width: 100%; /* Garantir que a imagem seja responsiva */
+  height: auto;
+  image-rendering: -webkit-optimize-contrast; /* Para suavizar a pixelagem no navegador WebKit */
+  image-rendering: crisp-edges; /* Para suavizar a pixelagem em navegadores modernos */
+}
+
+    </style>
+</head>
+<body>
+    
+    <form id="cadastroForm" action="/cadastro" method="POST"> <!-- Adicionamos action e method -->
+        <img src="baitatur.png" alt="Logo da BaitaTur" srcset="">
+        <h2>Cadastre-se na BaitaTur!</h2>
+        <input type="text" id="nomeInput" placeholder="Nome">
+        <input type="text" id="emailInput" placeholder="E-mail">
+        <input type="password" id="senhaInput" placeholder="Senha">
+        <select id="tipoSelect">
+            <option value="motorista">Motorista</option>
+            <option value="cliente">Cliente</option>
+        </select>
+        <button type="submit">Cadastrar</button>
+        <p id="cadastroMessage"></p>
+    </form>
+
+    <script>
+        document.getElementById('cadastroForm').addEventListener('submit', cadastrarUsuario);
+
+        function cadastrarUsuario(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nomeInput').value;
+            const email = document.getElementById('emailInput').value;
+            const senha = document.getElementById('senhaInput').value;
+            const tipo = document.getElementById('tipoSelect').value;
+
+            fetch('http://localhost:5000/cadastro', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nome: nome,
+                    email: email,
+                    senha: senha,
+                    tipo: tipo
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao cadastrar usuário');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('cadastroMessage').textContent = data.message;
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                document.getElementById('cadastroMessage').textContent = 'Erro ao cadastrar usuário';
+            });
+        }
+    </script>
+
+</body>
+</html>

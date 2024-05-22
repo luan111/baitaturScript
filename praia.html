@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praias em Itapipoca</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+}
+
+header {
+    background-color: grey;
+    color: orange;
+    padding: 20px;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.card {
+    position: relative; /* Adicionado para que a descrição seja posicionada relativa a este elemento */
+    width: 300px;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.7s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card-info {
+    display: none; /* Oculta a descrição inicialmente */
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 0.3s ease; /* Transição adicionada */
+}
+
+.card:hover .card-info {
+    display: block; /* Mostra a descrição ao passar o mouse */
+    opacity: 1; /* Altera a opacidade para tornar a descrição visível */
+}
+
+.card-info h2 {
+    margin-top: 0;
+}
+
+.card-info p {
+    color: #000;
+    margin: 5px 0;
+}
+
+    </style>
+   <!DOCTYPE html>
+   <html lang="pt-BR">
+   <head>
+       <header>
+           <h1>Itapipoca - CE</h1>
+       </header>
+       <main class="cards">
+           <div class="card">
+               <img src="baleia.jfif" alt="Praia 1">
+               <div class="card-info">
+                   <h2>Praia da Baleia</h2>
+                   <p>Descrição da Praia da Baleia.</p>
+               </div>
+           </div>
+           <div class="card">
+               <img src="icarai.jfif" alt="Praia 2">
+               <div class="card-info">
+                   <h2>Icaraí de Amontada</h2>
+                   <p>Descrição de Icaraí de Amontada.</p>
+               </div>
+           </div>
+           <div class="card">
+               <img src="01_flecheiras-média_SETUR.jpg" alt="Praia 3">
+               <div class="card-info">
+                   <h2>Flecheiras</h2>
+                   <p>Descrição de Flecheiras.</p>
+               </div>
+           </div>
+           <div class="card">
+               <img src="mundau.jfif" alt="Praia 4">
+               <div class="card-info">
+                   <h2>Mundaú</h2>
+                   <p>Descrição de Mundaú.</p>
+               </div>
+           </div>
+           <!-- Adicione mais cards conforme necessário -->
+       </main>
+   </body>
+   </html>
+   
