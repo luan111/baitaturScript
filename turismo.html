@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaitaTur - Encontre os melhores hotéis!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: orange;
+        }
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav {
+            background-color: #1a1a1a;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav a {
+            color: orange;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .search-form {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .search-form input[type="text"] {
+            width: calc(100% - 80px);
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #000;
+            color: orange;
+        }
+        .search-form button {
+            width: 100px;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #f90;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        .search-form button:hover {
+            background-color: orange;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="baitatur.png" alt="BaitaTur Logo">
+    </header>
+    <nav>
+        <a href="#">Página Inicial</a>
+        <a href="#">Sobre Nós</a>
+        <a href="#">Contato</a>
+    </nav>
+    <div class="container">
+        <h1>Encontre os melhores locais para sua próxima viagem!</h1>
+        <form class="search-form">
+            <select>
+                <option value="" disabled selected>Escolha um destino</option>
+                <option value="praia">Praia</option>
+                <a href="praia.html"><option value="serra">Serra</option></a>
+                <option value="sertao">Sertão</option>
+                
+            </select>
+            <input type="text" placeholder="Digite o local desejado">
+            <button type="submit">Buscar Lugares</button>
+        </form>
+    </div>
+</body>
+</html>
